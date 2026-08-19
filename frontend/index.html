@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Cozy Cup Café</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">☕ The Cozy Cup</a>
+      <nav class="nav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#hours">Hours &amp; Location</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero-content">
+        <h1>Great coffee, warm welcome.</h1>
+        <p>Handcrafted drinks and fresh bakes, made daily in the heart of your neighborhood.</p>
+        <a href="#menu" class="btn">View Menu</a>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container about-inner">
+        <div class="about-image" aria-hidden="true"></div>
+        <div class="about-text">
+          <h2>About Us</h2>
+          <p>
+            The Cozy Cup started as a small counter with three stools and a big idea:
+            coffee should taste like it was made just for you. Today we're still small,
+            still independent, and still roasting our beans with the same care as day one.
+          </p>
+          <p>
+            Come sit a while, catch up with a friend, or just enjoy a quiet moment
+            with a good cup of coffee.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="menu">
+      <div class="container">
+        <h2>Our Menu</h2>
+        <p class="section-subtitle">A few of our favorites — made fresh, every day.</p>
+
+        <div class="menu-grid">
+
+          <article class="menu-card">
+            <div class="menu-card-header">
+              <h3>Classic Espresso</h3>
+              <span class="price">$3.00</span>
+            </div>
+            <p>A bold, rich shot pulled from our house-roasted blend.</p>
+          </article>
+
+          <article class="menu-card">
+            <div class="menu-card-header">
+              <h3>Vanilla Latte</h3>
+              <span class="price">$4.75</span>
+            </div>
+            <p>Espresso, steamed milk, and a touch of house-made vanilla syrup.</p>
+          </article>
+
+          <article class="menu-card">
+            <div class="menu-card-header">
+              <h3>Cold Brew</h3>
+              <span class="price">$4.25</span>
+            </div>
+            <p>Steeped for 18 hours for a smooth, low-acid finish.</p>
+          </article>
+
+          <article class="menu-card">
+            <div class="menu-card-header">
+              <h3>Matcha Latte</h3>
+              <span class="price">$5.00</span>
+            </div>
+            <p>Ceremonial-grade matcha whisked with steamed milk.</p>
+          </article>
+
+          <article class="menu-card">
+            <div class="menu-card-header">
+              <h3>Butter Croissant</h3>
+              <span class="price">$3.50</span>
+            </div>
+            <p>Flaky, buttery, and baked fresh every morning.</p>
+          </article>
+
+          <article class="menu-card">
+            <div class="menu-card-header">
+              <h3>Blueberry Muffin</h3>
+              <span class="price">$3.25</span>
+            </div>
+            <p>Loaded with berries and a hint of lemon zest.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="hours" class="hours">
+      <div class="container hours-inner">
+        <div class="hours-block">
+          <h2>Hours</h2>
+          <ul class="hours-list">
+            <li><span>Monday – Friday</span><span>7:00 AM – 6:00 PM</span></li>
+            <li><span>Saturday</span><span>8:00 AM – 6:00 PM</span></li>
+            <li><span>Sunday</span><span>8:00 AM – 3:00 PM</span></li>
+          </ul>
+        </div>
+        <div class="location-block">
+          <h2>Location</h2>
+          <address>
+            123 Main Street<br>
+            Springfield, ST 12345
+          </address>
+          <p>(555) 123-4567</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 The Cozy Cup Café. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#hours">Hours &amp; Location</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <button id="chat-toggle" class="chat-toggle" aria-label="Open chat" aria-expanded="false" aria-controls="chat-window">
+    <span aria-hidden="true">💬</span>
+  </button>
+
+  <div id="chat-window" class="chat-window" hidden>
+    <div class="chat-header">
+      <span>CafeBot</span>
+      <button id="chat-close" class="chat-close" aria-label="Close chat">&times;</button>
+    </div>
+    <div id="chat-messages" class="chat-messages" role="log" aria-live="polite"></div>
+    <form id="chat-form" class="chat-form">
+      <input id="chat-input" type="text" placeholder="Ask something..." autocomplete="off" aria-label="Type a message">
+      <button type="submit" class="chat-send">Send</button>
+    </form>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
