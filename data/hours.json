@@ -1,0 +1,11 @@
+{
+  "hours": [
+    { "day": "Monday – Friday", "time": "7:00 AM – 6:00 PM" },
+    { "day": "Saturday", "time": "8:00 AM – 6:00 PM" },
+    { "day": "Sunday", "time": "8:00 AM – 3:00 PM" }
+  ],
+  "location": {
+    "address": "123 Main Street, Springfield, ST 12345",
+    "phone": "(555) 123-4567"
+  }
+}
