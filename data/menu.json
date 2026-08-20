@@ -1,0 +1,10 @@
+{
+  "items": [
+    { "name": "Classic Espresso", "price": "$3.00", "description": "A bold, rich shot pulled from our house-roasted blend." },
+    { "name": "Vanilla Latte", "price": "$4.75", "description": "Espresso, steamed milk, and a touch of house-made vanilla syrup." },
+    { "name": "Cold Brew", "price": "$4.25", "description": "Steeped for 18 hours for a smooth, low-acid finish." },
+    { "name": "Matcha Latte", "price": "$5.00", "description": "Ceremonial-grade matcha whisked with steamed milk." },
+    { "name": "Butter Croissant", "price": "$3.50", "description": "Flaky, buttery, and baked fresh every morning." },
+    { "name": "Blueberry Muffin", "price": "$3.25", "description": "Loaded with berries and a hint of lemon zest." }
+  ]
+}

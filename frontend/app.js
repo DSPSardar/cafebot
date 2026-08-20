@@ -5,7 +5,9 @@ const chatForm = document.getElementById('chat-form');
 const chatInput = document.getElementById('chat-input');
 const chatMessages = document.getElementById('chat-messages');
 
-const MOCK_REPLY = "Hi! I'm CafeBot. My AI brain isn't connected yet.";
+const ERROR_REPLY = "Sorry, I'm having trouble connecting right now — please try again in a moment.";
+
+let conversationHistory = [];
 
 function openChat() {
   chatWindow.hidden = false;
@@ -25,6 +27,11 @@ function addBubble(text, sender) {
   bubble.textContent = text;
   chatMessages.appendChild(bubble);
   chatMessages.scrollTop = chatMessages.scrollHeight;
+  return bubble;
+}
+
+function showTypingIndicator() {
+  return addBubble('...', 'bot');
 }
 
 chatToggle.addEventListener('click', () => {
@@ -37,13 +44,40 @@ chatToggle.addEventListener('click', () => {
 
 chatClose.addEventListener('click', closeChat);
 
-chatForm.addEventListener('submit', (event) => {
+chatForm.addEventListener('submit', async (event) => {
   event.preventDefault();
   const message = chatInput.value.trim();
   if (!message) return;
 
   addBubble(message, 'user');
   chatInput.value = '';
+  chatInput.disabled = true;
 
-  setTimeout(() => addBubble(MOCK_REPLY, 'bot'), 300);
+  const typingBubble = showTypingIndicator();
+
+  try {
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message,
+        conversationHistory: conversationHistory.slice(-10),
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Request failed with status ${response.status}`);
+    }
+
+    const data = await response.json();
+    typingBubble.remove();
+    addBubble(data.reply, 'bot');
+    conversationHistory = Array.isArray(data.conversationHistory) ? data.conversationHistory : conversationHistory;
+  } catch (err) {
+    typingBubble.remove();
+    addBubble(ERROR_REPLY, 'bot');
+  } finally {
+    chatInput.disabled = false;
+    chatInput.focus();
+  }
 });
